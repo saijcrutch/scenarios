@@ -1,10 +1,5 @@
 import random
 
-def intelligence_game():
-    print("So, you want to challenge me? Do you honestly think your inferior human mind could ever hope to match \
-mine? If I had vocal chords, I would laugh! But I'll humor you. It'll be entertaining to watch your weak attempts to \
-beat me.")
-
 def rpc_game_normal ():
     rpc = ['r', 'p', 's']
     computer_wins = 0
@@ -13,7 +8,6 @@ def rpc_game_normal ():
 
 
     while (wins-computer_wins < 2) and (computer_wins-wins < 2) and (computer_wins < 3) and (wins < 3):
-        score(wins, computer_wins)
         print(f"Me: {computer_wins}  | You: {wins} ")
         user = input('Your move human: ').lower()
         computer = random.choice(rpc)
@@ -30,24 +24,23 @@ def rpc_game_normal ():
         
         if computer_wins == 3 or wins == 3 or wins-computer_wins == 2 or computer_wins-wins == 2:
             print(f"Me: {computer_wins}  | You: {wins} ")
+        score_n(wins, computer_wins)
         
 def pattern(user, computer):
     if (user == 'r' and computer == 's') or (user == 'p' and computer == 'r') or \
         (user == 's' and computer == 'p'):
         return True
     
-def score(user, computer):
+def score_n(user, computer):
     if user - computer == 2:
-        print("water")
+        print("You must be sooo proud of yourself, right now.")
     elif computer - user == 2:
-        print("You lose!")
+        print("What else were you expecting?")
     elif computer == 3:
         print("Loser!")
-    elif user - computer == 2:
-        print("Winner!")
-    elif computer - user == 2:
-        print("Come on!")
+    elif user == 3:
+        print("Hmm... I guess you won this time. Surprising.")
 
 
-    
+
 rpc_game_normal()
