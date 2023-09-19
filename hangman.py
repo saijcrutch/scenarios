@@ -14,14 +14,6 @@ def hangman_n():
         print(f"This is what you've guessed: {' '.join(used_letters)}")
         user = input("What is your attempt? (Press 1 to guess entire word.) ").upper()
         
-        if user == 1:
-            user = input("Oh so you think you know it? I'd like to see you try. ")
-            if user == word:
-                print(f"I'm speechless! I can't believe you guessed {word}. I guess you are kind of smart")
-                break
-            else:
-                print(f"I knew you couldnt guess {word}! Guess is was too much for your memory.")
-                break
 
         if user in alphabet - used_letters:
             used_letters.add(user)
@@ -29,6 +21,14 @@ def hangman_n():
                 word_letters.remove(user)
         elif user in used_letters:
             print("Your human memory must be failing you. You already used that letter.")
+        elif user == '1':
+            user = input("Oh so you think you know it? I'd like to see you try! ").upper()
+            if user == word:
+                print(f"I'm speechless! I can't believe you guessed {word}. I guess you are kind of smart.")
+                break
+            else:
+                print(f"I knew you couldnt guess {word}! Guess is was too much for your memory.")
+                break
         else:
             print("I know the only way you can win is to cheat but I won't let you get away with that.")
 
