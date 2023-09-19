@@ -5,7 +5,6 @@ def rpc_game_normal ():
     computer_wins = 0
     wins = 0
     
-    print(" ")
 
     while (wins-computer_wins < 2) and (computer_wins-wins < 2) and (computer_wins < 3) and (wins < 3):
         print(f"Me: {computer_wins}  | You: {wins} ")
