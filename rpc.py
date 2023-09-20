@@ -1,4 +1,6 @@
 import random
+import time
+from auxiliary_functions import computerSpeak
 
 def rpc_game_normal ():
     rpc = ['r', 'p', 's']
@@ -25,17 +27,17 @@ def rpc_game_normal ():
         elif computer == 'p':
             computer = 'paper'
 
-        print(f"You chose {user} and I chose {computer}.")
+        computerSpeak(f"You chose {user} and I chose {computer}.")
 
         if user == computer:
             wins += 0
             computer_wins += 0
         elif pattern(user, computer):
-            computer_wins += 1
-        elif user_pattern(user, computer):
             wins += 1
+        elif com_pattern(user, computer):
+            computer_wins += 1
         else:
-            print("Your human tricks won't work with me. Choose a valid character.")
+            computerSpeak("Your human tricks won't work on me. Choose a valid character.")
         
         
         
@@ -48,20 +50,20 @@ def pattern(user, computer):
         (user == 'scissors' and computer == 'paper'):
         return True
     
-def user_pattern(user, computer):
+def com_pattern(user, computer):
     if (computer == 'rock' and user == 'scissors') or (computer == 'paper' and user == 'rock') or \
         (computer == 'scissors' and user == 'paper'):
         return True
     
 def score_n(user, computer):
     if user - computer == 2:
-        print("You must be sooo proud of yourself, right now.")
+        print(computerSpeak("You must be sooo proud of yourself, right now."))
     elif computer - user == 2:
-        print("What else were you expecting?")
+        print(computerSpeak("What else were you expecting?"))
     elif computer == 3:
-        print("Loser!")
+        print(computerSpeak("Loser!"))
     elif user == 3:
-        print("Hmm... I guess you won this time. Surprising.")
+        print(computerSpeak("Hmm... I guess you won this time. Surprising."))
 
 
 
