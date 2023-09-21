@@ -13,16 +13,21 @@ def number_n():
         num = input("What's your guess? ")
         guess = validate(num)
         
-        if guess > list[-1]:
-            computerSpeak("...")
-            computerSpeak("Do you not know how to count? Guess this is what I should've expected from a human. \
-Guess again.") 
-        elif guess < list[0]:
-            computerSpeak(f"Do you really think {guess} is between 1 and 100? -_- Try again.")
-        elif guess in list:
-            print(guess)
-        else:
+        try:
+            guess = int(num)
+        except ValueError:
             computerSpeak("That's not even a number! I know you're a human but even you have to be smarter than this.")
+        else:
+            if guess > list[-1]:
+                computerSpeak("...")
+                time.sleep(0.5)
+                computerSpeak("Do you not know how to count? I said to 100 not over 100. Guess this is what I should've \
+expected from a human. Guess again.") 
+            elif guess < list[0]:
+                computerSpeak(f"Do you really think {guess} is between 1 and 100? -_- Try again.")
+            elif guess in list:
+                print(guess)
+            
 
     computerSpeak("Took you a while but you finally got it.")
 
