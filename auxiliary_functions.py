@@ -44,10 +44,6 @@ def backwardsComputerSpeak(computer, timer):
     print(' '*len(com1), end='\r', flush=True)
     time.sleep(2)
 
-          
-
- 
-
 def inputToInt(userInput):
     input = userInput
     new_list = []
@@ -79,4 +75,13 @@ def deleteLine(time1):
     print('\r', "THIS IS A NEW LINE.")
     time.sleep(time1)
 
-backwardsComputerSpeak('Memorize this sentence!', 10)
+def timer(seconds):
+    count = [*range(0, seconds+1)]    
+
+    for i in range(len(count[::-1])):
+        print(i, end='\r', flush=True)
+        count.pop()
+        time.sleep(1)
+    
+
+timer(10)
