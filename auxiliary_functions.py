@@ -1,5 +1,6 @@
 import time
 import random
+import sys
 
 def computerSpeak(computer):
     for i in computer:
@@ -23,6 +24,30 @@ def computerConvo(com1, com2):
     
     time.sleep(0.5)
 
+def backwardsComputerSpeak(computer, timer):
+    com = list(computer)
+    com1 = []
+    space = len(com) * ' '
+
+    for i in com:
+        com1.append(i)
+
+    print(''.join(com1), end="\r", flush=True)
+    time.sleep(timer)
+
+    for i in range(len(com1[::-1])): 
+        time.sleep(0.03)
+        print(' '*len(com1), end="\r", flush=True)
+        i = com1.pop()
+        print(''.join(com1), end='\r', flush=True)
+    
+    print(' '*len(com1), end='\r', flush=True)
+    time.sleep(2)
+
+          
+
+ 
+
 def inputToInt(userInput):
     input = userInput
     new_list = []
@@ -45,3 +70,13 @@ def inputToInt(userInput):
 
     for i in set1:
         return int(i)
+    
+def deleteLine(time1):
+    print("This is a test line!", end='', flush=True)
+    time.sleep(time1)
+    print('\r', end='')
+    time.sleep(time1)
+    print('\r', "THIS IS A NEW LINE.")
+    time.sleep(time1)
+
+backwardsComputerSpeak('Memorize this sentence!', 10)
