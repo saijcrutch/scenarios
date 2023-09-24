@@ -100,4 +100,3 @@ def comSpeakTimer(speak, seconds):
     print(f"{speak} {numbers[-1]-1}", end='\r', flush=True)
     backwardsComputerSpeak(f"{speak} {numbers[-1]-1}", 0.9)
 
-comSpeakTimer("This is a test", 10)
