@@ -24,16 +24,15 @@ def computerConvo(com1, com2):
     
     time.sleep(0.5)
 
-def backwardsComputerSpeak(computer, timer):
+def backwardsComputerSpeak(computer, timed):
     com = list(computer)
     com1 = []
-    space = len(com) * ' '
 
     for i in com:
         com1.append(i)
 
     print(''.join(com1), end="\r", flush=True)
-    time.sleep(timer)
+    time.sleep(timed)
 
     for i in range(len(com1[::-1])): 
         time.sleep(0.03)
@@ -77,11 +76,28 @@ def deleteLine(time1):
 
 def timer(seconds):
     count = [*range(0, seconds+1)]    
+    counter = []
 
-    for i in range(len(count[::-1])):
+    for i in count[::-1]:
+        counter.append(i)
+        count.pop()  
+
+    for i in range(len(counter)):
         print(i, end='\r', flush=True)
-        count.pop()
+        counter.pop()
         time.sleep(1)
-    
 
-timer(10)
+def comSpeakTimer(speak, seconds):
+    numbers = range(seconds, 0, -1)
+
+    for i in numbers:
+        
+        sentence = f"{speak} {str(i)}".ljust(50)
+        
+        print(sentence, end='\r', flush=True)
+        time.sleep(1)
+
+    print(f"{speak} {numbers[-1]-1}", end='\r', flush=True)
+    backwardsComputerSpeak(f"{speak} {numbers[-1]-1}", 0.9)
+
+comSpeakTimer("This is a test", 10)

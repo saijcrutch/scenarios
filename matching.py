@@ -10,4 +10,10 @@ rand = randNums + randWords
 randPick = random.shuffle(rand)
 
 def matching():
-    
+    clock = 10
+    objects = []
+    memory = random.choice(randWords, randNums, randPick)
+
+    print(f"You have {clock} seconds to memorize this:")
+
+matching()
