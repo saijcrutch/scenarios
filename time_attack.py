@@ -17,12 +17,12 @@ def typeAttack():
         time.sleep(1)
         rand = ' '.join(randWords)
         print(rand)
-        com = threading.Timer(5.0, computer, [numbers])
+        com = threading.Timer(5.0, computer, [rand])
         com.start()
         user = input("Type your answer: ")
         if com != numbers:
             print("ugh")
-        elif com == numbers:
+        elif com == rand:
              com = rand
              print(com)
              print("You lose!")
@@ -34,7 +34,7 @@ def typeAttack():
              break
 
 def computer(*number):
-     return number
+      print(''.join(number))
      
      
      
