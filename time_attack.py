@@ -5,7 +5,7 @@ import threading
 
 def typeAttack():
     timing = random.choice(range(3, 6))
-    numbers = random.choice(range(0, 5))
+    numbers = random.choice(range(3, 6))
     lives = 1
     if ' ' not in words or '-' not in words:
             randWords = random.sample(words, timing)
@@ -15,20 +15,28 @@ def typeAttack():
     while lives > 0:
         print("Try to beat the computer. Type the words before the computer gets a chance to.")
         time.sleep(1)
-        print(' '.join(randWords))
+        rand = ' '.join(randWords)
+        print(rand)
+        com = threading.Timer(5.0, computer, [numbers])
+        com.start()
         user = input("Type your answer: ")
-        computer = threading.Timer()
-        if computer != numbers:
-            computer = random.choice(range(numbers))
-        elif computer == numbers:
-             print(''.join(randWords))
+        if com != numbers:
+            print("ugh")
+        elif com == numbers:
+             com = rand
+             print(com)
+             print("You lose!")
              lives -= 1
-        if user == ' '.join(randWords):
+             break
+        elif user == rand:
              print('You win!')
              lives -= 1
+             break
 
-def computer(number, seconds):
-     rand = random.choice(number)
+def computer(*number):
+     return number
+     
+     
      
 
 
