@@ -41,7 +41,7 @@ def backwardsComputerSpeak(computer, timed):
         print(''.join(com1), end='\r', flush=True)
     
     print(' '*len(com1), end='\r', flush=True)
-    time.sleep(2)
+    time.sleep(0.5)
 
 def inputToInt():
     number = input("")
@@ -100,6 +100,44 @@ def comSpeakTimer(speak, seconds):
     print(f"{speak} {numbers[-1]-1}", end='\r', flush=True)
     backwardsComputerSpeak(f"{speak} {numbers[-1]-1}", 0.9)
 
+def score(message, original_score, score, pos_neg):
+    sub = original_score - score
+    add = original_score + score
+    old = f"{message} {str(original_score)}"
+    new_sub = f"{message} {str(sub)}"
+    new_add = f"{message} {str(add)}"
+    add_sub = f"{str(original_score)} {str(pos_neg)} {str(score)}"
+    math = add_sub.split()
+    point = str(original_score) + ' ' + pos_neg + ' '
+    new_point = str(score) + ' ' + pos_neg + ' '
+
+
+
+    time.sleep(0.5)
+    print(old, end='\r', flush=True)
+    time.sleep(1)
+    print(' '*len(old), end='\r', flush=True)
+    print(message, end=' ', flush=True)
+
+    for i in math:
+        print(i, end=' ', flush=True)
+        time.sleep(0.9)
+    
+    print(end='\r', flush=True)
+    if score > original_score and str(pos_neg) == "-":
+        print(' '*len(new_sub)+' '*len(new_point), end='\r', flush=True)
+        print(new_sub)
+    elif original_score > score and str(pos_neg) == "-":
+        print(' '*len(new_sub)+' '*len(point), end='\r', flush=True)
+        print(new_sub)
+    elif str(pos_neg) == "+":
+        print(' '*len(new_add)+' '*len(point), end='\r', flush=True)
+        print(new_add)
+        
+    
+
+
+
 def carnivalTalk(talk):
     lang = talk.split()
 
@@ -107,8 +145,9 @@ def carnivalTalk(talk):
 
     for i in lang:
         print(i, end=' ', flush=True)
-        time.sleep(0.5)
+        time.sleep(0.8)
     
     print('')
-    time.sleep(0.5)
+    time.sleep(1)
    
+score("My score:", 5, 10, "-")
