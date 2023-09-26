@@ -111,9 +111,6 @@ def score(message, original_score, score, pos_neg):
     point = str(original_score) + ' ' + pos_neg + ' '
     new_point = str(score) + ' ' + pos_neg + ' '
 
-
-
-    time.sleep(0.5)
     print(old, end='\r', flush=True)
     time.sleep(1)
     print(' '*len(old), end='\r', flush=True)
@@ -121,10 +118,10 @@ def score(message, original_score, score, pos_neg):
 
     for i in math:
         print(i, end=' ', flush=True)
-        time.sleep(0.9)
+        time.sleep(0.7)
     
     print(end='\r', flush=True)
-    if score > original_score and str(pos_neg) == "-":
+    if score > original_score and str(pos_neg) == "-=":
         print(' '*len(new_sub)+' '*len(new_point), end='\r', flush=True)
         print(new_sub)
     elif original_score > score and str(pos_neg) == "-":
@@ -147,7 +144,5 @@ def carnivalTalk(talk):
         print(i, end=' ', flush=True)
         time.sleep(0.8)
     
-    print('')
     time.sleep(1)
    
-score("My score:", 5, 10, "-")
