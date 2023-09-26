@@ -20,7 +20,7 @@ def typeAttack():
         com = threading.Timer(5.0, computer, [rand])
         com.start()
         user = input("Type your answer: ")
-        if com != numbers:
+        if com != rand:
             print("ugh")
         elif com == rand:
              com = rand

@@ -43,8 +43,8 @@ def backwardsComputerSpeak(computer, timed):
     print(' '*len(com1), end='\r', flush=True)
     time.sleep(2)
 
-def inputToInt(userInput):
-    input = userInput
+def inputToInt():
+    number = input("")
     new_list = []
     num_list = [', '.join(i for i in new_list)]
     one_list = set()
@@ -60,11 +60,11 @@ def inputToInt(userInput):
         one_list.add(str(i))
 
     for i in one_list:
-        if input == i:
+        if number == i:
             set1.add(i)
 
     for i in set1:
-        return int(i)
+         print(int(i))
     
 def deleteLine(time1):
     print("This is a test line!", end='', flush=True)
@@ -100,3 +100,15 @@ def comSpeakTimer(speak, seconds):
     print(f"{speak} {numbers[-1]-1}", end='\r', flush=True)
     backwardsComputerSpeak(f"{speak} {numbers[-1]-1}", 0.9)
 
+def carnivalTalk(talk):
+    lang = talk.split()
+
+    time.sleep(0.3)
+
+    for i in lang:
+        print(i, end=' ', flush=True)
+        time.sleep(0.5)
+    
+    print('')
+    time.sleep(0.5)
+   
