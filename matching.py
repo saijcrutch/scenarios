@@ -19,22 +19,29 @@ def typeAttack():
         joined2 = ''.join(options)
         joined3 = ' '.join(random.sample(options, k=len(options)))
         option = [joined, joined2, joined3]    
-    
+        
+        booth = random.choice(range(1, 11))
         user = input("Pick a number between 1-10: ")
         player = int(user)
-        booth = random.choice(range(1, 11))
-        print(booth, end='\r', flush=True)
-        
-        if player == booth and player in list(range(1, 11)):
+
+        if user not in range(1, 11) or user == 0:
+            print("You have to choose between 1-10. Pick again.")
+
+        try:
+            user == int(input("Pick a number between 1-10: "))
+        except Exception:
+            print("Not a number!")
+
+        if user == booth and user in range(1, 11):
             print(f"You chose {player} and I chose {booth}. Let's pick again.")
             time.sleep(0.5)
-        elif player > booth and player in list(range(1, 11)):
+        elif user > booth and user in range(1, 11):
             print(f"You chose {player} and I chose {booth}. You go first.")
             time.sleep(0.5)
             print("You have 5 seconds to memorize this.")
             backwardsComputerSpeak(' '.join(options), 5)
-            player = input("Type what you saw: ")
-            if player != ' '.join(options):
+            user = input("Type what you saw: ")
+            if user != ' '.join(options):
                 print("Sorry, wrong answer. My turn.")
                 time.sleep(0.5)
                 booth = random.choice(option)
@@ -53,12 +60,12 @@ def typeAttack():
                     time.sleep(0.3)
                     print(f"My score: {c_points}")
                     p_points += 2
-            elif player == ' '.join(options):
+            elif user == ' '.join(options):
                 score("Your score:", p_points, 1, "+")
                 time.sleep(0.3)
                 print(f"My score: {c_points}")
                 p_points += 1
-        elif player < booth:
+        elif user < booth and user in range(1, 11):
             print(f"I chose {booth} and you chose {player}. I go first.")
             time.sleep(0.5)
             print("This is what needs to memorized.")
@@ -71,21 +78,19 @@ def typeAttack():
                 backwardsComputerSpeak(booth, 0.8)
                 time.sleep(1)
                 print("Oh no! I got it wrong! It's your turn now.")
-                player = input("Type what you saw: ")
-                if player == ' '.join(options):
+                user = input("Type what you saw: ")
+                if user == ' '.join(options):
                     score("Your score:", p_points, 2, "+")
                     time.sleep(0.3)
                     print(f"My score: {c_points}")
                     p_points += 2
-                elif player != ' '.join(options):
+                elif user != ' '.join(options):
                     print("You were wrong. The points go to me.")
                     time.sleep(0.5)
                     score("My score:", c_points, 2, "+")
                     time.sleep(0.3)
                     print(f"Your score: {p_points}")
                     c_points += 2
-        elif player not in list(range(1, 11)):
-            print("You have to choose between 1-10. Pick again.")
         
     if p_points == 10:
         print(f"Your score: {p_points}")
