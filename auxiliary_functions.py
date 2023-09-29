@@ -143,26 +143,38 @@ def carnivalTalk(talk):
     time.sleep(1)
 
 def randomType(text):
-    lang = list(text)
-    list1 = []
-    list2 = [' ' for _ in lang]  # Initialize list2 with spaces
+    # Create a list of unique characters from the input text
+    unique_chars = list(set(text))
+
+    # Shuffle the list of unique characters
+    random.shuffle(unique_chars)
+
+    # Create a dictionary to store characters in their original positions
+    char_positions = {char: [] for char in unique_chars}
+
+    # Populate the dictionary with positions of each character in the input text
+    for i, char in enumerate(text):
+        char_positions[char].append(i)
+
+    # Initialize the typed_text with spaces
+    typed_text = [' ' for _ in text]
 
     print("Original text:", text)
     time.sleep(1)
-    print(" " * len(text), end="\r", flush=True)
-    time.sleep(2)
+    
+    for char in unique_chars:
+        # Shuffle the positions of the character
+        random.shuffle(char_positions[char])
 
-    while len(list1) != len(lang):
-        rand = random.choice(lang)
+        for position in char_positions[char]:
+            typed_text[position] = char
+            print("".join(typed_text), end="\r", flush=True)
+            time.sleep(0.1)
 
-        if rand in lang:
-            index = lang.index(rand)
-            list1.append(rand)
+    print()  # Print a newline after finishing
 
-        typed_text = [letter if letter in list1 else ' ' for letter in text]
-        print("".join(typed_text), end='\r', flush=True)
-        time.sleep(1)
-        
-    print(text)
+text = "Hello, World!"
+randomType(text)
+
   
 randomType("How are you?")
