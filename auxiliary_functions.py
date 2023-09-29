@@ -130,11 +130,7 @@ def score(message, original_score, score, pos_neg):
     elif str(pos_neg) == "+":
         print(' '*len(new_add)+' '*len(point), end='\r', flush=True)
         print(new_add)
-        
-    
-
-
-
+           
 def carnivalTalk(talk):
     lang = talk.split()
 
@@ -145,4 +141,28 @@ def carnivalTalk(talk):
         time.sleep(0.8)
     
     time.sleep(1)
-   
+
+def randomType(text):
+    lang = list(text)
+    list1 = []
+    list2 = [' ' for _ in lang]  # Initialize list2 with spaces
+
+    print("Original text:", text)
+    time.sleep(1)
+    print(" " * len(text), end="\r", flush=True)
+    time.sleep(2)
+
+    while len(list1) != len(lang):
+        rand = random.choice(lang)
+
+        if rand in lang:
+            index = lang.index(rand)
+            list1.append(rand)
+
+        typed_text = [letter if letter in list1 else ' ' for letter in text]
+        print("".join(typed_text), end='\r', flush=True)
+        time.sleep(1)
+        
+    print(text)
+  
+randomType("How are you?")

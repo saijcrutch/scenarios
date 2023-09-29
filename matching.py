@@ -21,38 +21,43 @@ def typeAttack():
         option = [joined, joined2, joined3]    
         
         booth = random.choice(range(1, 11))
-        user = input("Pick a number between 1-10: ")
-        player = int(user)
+        
+        while True:
+            try:
+                player = int(input("Pick a number between 1-10: "))
+                if player not in range(1, 11):
+                    raise ValueError("You have to choose a number between 1-10.")
+                break  # Exit the loop if input is valid
+            except ValueError as e:
+                print(f"{e} is not a number. You have to choose a number.")
 
-        if user not in range(1, 11) or user == 0:
+        if player not in range(1, 11) or player == 0:
             print("You have to choose between 1-10. Pick again.")
 
-        try:
-            user == int(input("Pick a number between 1-10: "))
-        except Exception:
-            print("Not a number!")
-
-        if user == booth and user in range(1, 11):
+        if player == booth and player in range(1, 11):
             print(f"You chose {player} and I chose {booth}. Let's pick again.")
             time.sleep(0.5)
-        elif user > booth and user in range(1, 11):
+        elif player > booth and player in range(1, 11):
             print(f"You chose {player} and I chose {booth}. You go first.")
             time.sleep(0.5)
             print("You have 5 seconds to memorize this.")
             backwardsComputerSpeak(' '.join(options), 5)
-            user = input("Type what you saw: ")
-            if user != ' '.join(options):
+            player = input("Type what you saw: ")
+            if player != ' '.join(options):
                 print("Sorry, wrong answer. My turn.")
                 time.sleep(0.5)
                 booth = random.choice(option)
                 if booth == ' '.join(options):
                     carnivalTalk(booth)
+                    print(end='\r', flush=True)
+                    print(' '*100, end='\r', flush=True)
                     score("My score:", c_points, 2, "+")
                     time.sleep(0.3)
                     print(f"Your score: {p_points}")
                     c_points += 2
                 elif booth != ' '.join(options):
                     carnivalTalk(booth)
+                    print('')
                     time.sleep(0.5)
                     print("I was wrong. The points go to you.")
                     time.sleep(0.5)
@@ -60,12 +65,12 @@ def typeAttack():
                     time.sleep(0.3)
                     print(f"My score: {c_points}")
                     p_points += 2
-            elif user == ' '.join(options):
+            elif player == ' '.join(options):
                 score("Your score:", p_points, 1, "+")
                 time.sleep(0.3)
                 print(f"My score: {c_points}")
                 p_points += 1
-        elif user < booth and user in range(1, 11):
+        elif player < booth and player in range(1, 11):
             print(f"I chose {booth} and you chose {player}. I go first.")
             time.sleep(0.5)
             print("This is what needs to memorized.")
@@ -78,13 +83,13 @@ def typeAttack():
                 backwardsComputerSpeak(booth, 0.8)
                 time.sleep(1)
                 print("Oh no! I got it wrong! It's your turn now.")
-                user = input("Type what you saw: ")
-                if user == ' '.join(options):
+                player = input("Type what you saw: ")
+                if player == ' '.join(options):
                     score("Your score:", p_points, 2, "+")
                     time.sleep(0.3)
                     print(f"My score: {c_points}")
                     p_points += 2
-                elif user != ' '.join(options):
+                elif player != ' '.join(options):
                     print("You were wrong. The points go to me.")
                     time.sleep(0.5)
                     score("My score:", c_points, 2, "+")
@@ -113,7 +118,7 @@ def typeAttack():
         print(f"My score: {c_points}")
         print(f"Your score: {p_points}")
         print("I'm the master at this game!")
-        question2 = input("SWant to try again and see if you can do better than me? (Y/N) ").lower()
+        question2 = input("Want to try again and see if you can do better than me? (Y/N) ").lower()
         while question2 != 'n' and question2 != 'y':
             if question2 == 'y':
                 typeAttack()
