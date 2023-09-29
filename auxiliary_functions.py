@@ -172,9 +172,5 @@ def randomType(text):
             time.sleep(0.1)
 
     print()  # Print a newline after finishing
-
-text = "Hello, World!"
-randomType(text)
-
   
-randomType("How are you?")
+randomType("This is a test!")
