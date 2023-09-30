@@ -158,9 +158,6 @@ def randomType(text):
 
     # Initialize the typed_text with spaces
     typed_text = [' ' for _ in text]
-
-    print("Original text:", text)
-    time.sleep(1)
     
     for char in unique_chars:
         # Shuffle the positions of the character
@@ -169,8 +166,7 @@ def randomType(text):
         for position in char_positions[char]:
             typed_text[position] = char
             print("".join(typed_text), end="\r", flush=True)
-            time.sleep(0.1)
+            time.sleep(0.2)
 
     print()  # Print a newline after finishing
   
-randomType("This is a test!")
