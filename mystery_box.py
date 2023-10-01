@@ -37,23 +37,100 @@ boxVisualLives = {
     |______|
     """,
     5: """
-    🐟🐟🐟🐟
-    |🐟🐟🐟|      
-    |🐟🐟🐟|
+    🍔🧆🥘🍲
+    |🥗🍝🍚|      
+    |🍱🍘🍙|
     |______|
     """,
     6: """
-    🗑🗑🗑🗑
-    |🗑🗑🗑|
-    |🗑🗑🗑|
+    🪂 🪀 🪁
+    |🪆 🪃]|
+    |🎎🧸🧮|
     |______|
     """,
 }
 booth = random.choice(range(1, 11))
-prize = random.choice(boxVisualLives)
+no_thing = ['0', '1', '2']
+something = [x for x in boxVisualLives if x != no_thing]
+prize = None
 
 print("Try to guess the number of this box.")
 print(boxVisualLives[0])
+
+def prizes(p1, p2):
+    global prize
+    possible_prizes = [key for key in boxVisualLives if key not in ['0', '1', '2']]
+    prize = random.choice(possible_prizes)
+    p1 = prize
+
+    if p1 == boxVisualLives[3]:
+        print(p1)
+        possible_prizes.pop(p1)
+        print("You won... nothing!")
+        p2 = prize
+        if p2 == boxVisualLives[4]:
+            print(p2)
+            print("I just won $1,000! I quit!")
+            print("Well at least you have a box to live in after blowing all your money on this game.")
+        elif p2 == boxVisualLives[5]:
+            print(p2)
+            print("Look at all this food! I'll be eating good tonight!")
+            print("Hope you like the taste of air.")
+        elif p2 == boxVisualLives[6]:
+            print(p2)
+            print("I have enough toys but I could probably give them away to some kids.")
+            print("I hope you have a good imagination because all you'll be playing with is a box.")
+    elif p1 == boxVisualLives[4]:
+        print(p1)
+        possible_prizes.pop(p1)
+        print("You won... nothing!")
+        p2 = prize
+        if p2 == boxVisualLives[3]:
+            print(p2)
+            print("I just won $1,000! I quit!")
+            print("Well at least you have a box to live in after blowing all your money on this game.")
+        elif p2 == boxVisualLives[5]:
+            print(p2)
+            print("Look at all this food! I'll be eating good tonight!")
+            print("Hope you like the taste of air.")
+        elif p2 == boxVisualLives[6]:
+            print(p2)
+            print("I have enough toys but I could probably give them away to some kids.")
+            print("I hope you have a good imagination because all you'll be playing with is a box.")
+    elif p1 == boxVisualLives[5]:
+        print(p1)
+        possible_prizes.pop(p1)
+        print("You won... nothing!")
+        p2 = prize
+        if p2 == boxVisualLives[3]:
+            print(p2)
+            print("I just won $1,000! I quit!")
+            print("Well at least you have a box to live in after blowing all your money on this game.")
+        elif p2 == boxVisualLives[4]:
+            print(p2)
+            print("Look at all this food! I'll be eating good tonight!")
+            print("Hope you like the taste of air.")
+        elif p2 == boxVisualLives[6]:
+            print(p2)
+            print("I have enough toys but I could probably give them away to some kids.")
+            print("I hope you have a good imagination because all you'll be playing with is a box.")
+    elif p1 == boxVisualLives[6]:
+        print(p1)
+        possible_prizes.pop(p1)
+        print("You won... nothing!")
+        p2 = prize
+        if p2 == boxVisualLives[3]:
+            print(p2)
+            print("I just won $1,000! I quit!")
+            print("Well at least you have a box to live in after blowing all your money on this game.")
+        elif p2 == boxVisualLives[4]:
+            print(p2)
+            print("Look at all this food! I'll be eating good tonight!")
+            print("Hope you like the taste of air.")
+        elif p2 == boxVisualLives[5]:
+            print(p2)
+            print("I have enough toys but I could probably give them away to some kids.")
+            print("I hope you have a good imagination because all you'll be playing with is a box.")
 
 while True:
     try:
@@ -102,8 +179,12 @@ elif booth != box_num and player == box_num:
     print("Do you want to look inside or do you want to give it to the carnival worker?")
     player = input("Look. (Y) Give it away. (N) ").lower()
     if player == 'n':
+        player = random.choice(prize)
         print("You give it to the carnival worker.")
-        print(prize)
+        print("Let's see what you gave up.")
+        computerSpeakAni("...", 0.5)
+        time.sleep(0.5)
+        prizes(player, booth)
 elif booth == box_num and player == box_num:
     print(f"I chose {booth} and you chose {player}. Let's see who guessed correctly.")
     time.sleep(0.5)
@@ -112,24 +193,3 @@ elif booth == box_num and player == box_num:
     computerSpeakAni("...", 0.5)
     time.sleep(0.5)
 
-def prizes(p1, p2, reward):
-    nothing = ['0', '1', '2']
-    
-    for key in boxVisualLives:
-        boxVisualLives.pop(nothing)
-
-    p1 = random.choice(boxVisualLives)
-    choices = [x for x in boxVisualLives != p1]
-    p2 = random.choice(choices)
-
-    if p1 == boxVisualLives[3]:
-        p1 = boxVisualLives.pop(p1)
-        print("You won... nothing!")
-        if p2 == boxVisualLives[4]:
-            print("I just won $10,000! I quit!")
-            print("Well at least you have a box to live in after blowing all your money on this game.")
-        elif p2 == boxVisualLives[5]:
-            print("Idk")
-        elif p2 == boxVisualLives[6]:
-            print("Idk what to do.")
-    
