@@ -1,5 +1,14 @@
-towerVisualLives = {
+from mystery_box import box_num
+
+boxVisualLives = {
     0: """
+    ________
+    |      |
+    |      |
+    |______|
+    """,
+    1:  f"""
+    {box_num}
     ________
     |      |
     |      |

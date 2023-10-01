@@ -2,13 +2,21 @@ import time
 import random
 import sys
 
-def computerSpeak(computer):
+def computerSpeak(computer, timer):
     for i in computer:
         print(i, end='', flush=True)
-        time.sleep(0.03)
+        time.sleep(timer)
     time.sleep(0.5)
     print("")    
     time.sleep(0.4)
+
+def computerSpeakAni(computer, timer):
+    for i in computer:
+        print(i, end='', flush=True)
+        time.sleep(timer)
+    print(end='\r', flush=True)
+    print(" "*len(computer), end='\r', flush=True)
+    time.sleep(0.5)
 
 def computerConvo(com1, com2):
     for i in com1:
