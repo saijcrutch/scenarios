@@ -126,9 +126,10 @@ def prizes(p1, p2, reward):
         p1 = boxVisualLives.pop(p1)
         print("You won... nothing!")
         if p2 == boxVisualLives[4]:
-            print("I have several")
+            print("I just won $10,000! I quit!")
+            print("Well at least you have a box to live in after blowing all your money on this game.")
         elif p2 == boxVisualLives[5]:
+            print("Idk")
         elif p2 == boxVisualLives[6]:
-    elif reward == boxVisualLives[6]:
-        print(boxVisualLives[3])
-        print("You won... nothing! ")
+            print("Idk what to do.")
+    
