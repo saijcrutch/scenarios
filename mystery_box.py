@@ -83,54 +83,54 @@ def prizes(p1, p2):
     elif p1 == boxVisualLives[4]:
         print(p1)
         possible_prizes.pop(p1)
-        print("You won... nothing!")
+        print("You won... $1,000!")
         p2 = prize
         if p2 == boxVisualLives[3]:
             print(p2)
-            print("I just won $1,000! I quit!")
-            print("Well at least you have a box to live in after blowing all your money on this game.")
+            print("I won a box of nothing 😭! Guess I have to keep working here.")
+            print("Do you think I could borrow $100 from you?")
         elif p2 == boxVisualLives[5]:
             print(p2)
-            print("Look at all this food! I'll be eating good tonight!")
-            print("Hope you like the taste of air.")
+            print("It's not $1,000 but at least I'll be eating good for the next week.")
+            print("You can buy so much cotton candy with $1,000!")
         elif p2 == boxVisualLives[6]:
             print(p2)
-            print("I have enough toys but I could probably give them away to some kids.")
-            print("I hope you have a good imagination because all you'll be playing with is a box.")
+            print("Do you think I could sell these toys online for $1,000?")
+            print("Wanna trade boxes?")
     elif p1 == boxVisualLives[5]:
         print(p1)
         possible_prizes.pop(p1)
-        print("You won... nothing!")
+        print("You won... a week's worth of food!")
         p2 = prize
         if p2 == boxVisualLives[3]:
             print(p2)
-            print("I just won $1,000! I quit!")
-            print("Well at least you have a box to live in after blowing all your money on this game.")
+            print("I can't eat air!")
+            print("I'm so hungry. Can I have a bite?")
         elif p2 == boxVisualLives[4]:
             print(p2)
-            print("Look at all this food! I'll be eating good tonight!")
-            print("Hope you like the taste of air.")
+            print("Woah! I wasn't expecting to get this much money today!")
+            print("You have a week's worth of food but I can buy a month's worth with my money!")
         elif p2 == boxVisualLives[6]:
             print(p2)
-            print("I have enough toys but I could probably give them away to some kids.")
-            print("I hope you have a good imagination because all you'll be playing with is a box.")
+            print("I haven't played with toys in so long.")
+            print("You have a week's worth of food. I have a week's worth of entertainment.")
     elif p1 == boxVisualLives[6]:
         print(p1)
         possible_prizes.pop(p1)
-        print("You won... nothing!")
+        print("You won... toys!")
         p2 = prize
         if p2 == boxVisualLives[3]:
             print(p2)
-            print("I just won $1,000! I quit!")
-            print("Well at least you have a box to live in after blowing all your money on this game.")
+            print("I have a box of nothing!")
+            print("Sharing is caring. Why don't you share some of your toys?")
         elif p2 == boxVisualLives[4]:
             print(p2)
-            print("Look at all this food! I'll be eating good tonight!")
-            print("Hope you like the taste of air.")
+            print("I got $1,000!")
+            print("I can buy better toys than whatever you have in that box.")
         elif p2 == boxVisualLives[5]:
             print(p2)
-            print("I have enough toys but I could probably give them away to some kids.")
-            print("I hope you have a good imagination because all you'll be playing with is a box.")
+            print("I'm about to save a lot of money on lunch.")
+            print("Maybe you can use your toy oven to make some cookies.")
 
 while True:
     try:
