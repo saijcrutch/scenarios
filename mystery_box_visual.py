@@ -1,3 +1,5 @@
+from mystery_box import box_num
+
 boxVisualLives = {
     0: """
     ________
