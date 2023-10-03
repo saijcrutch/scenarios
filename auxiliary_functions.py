@@ -177,4 +177,13 @@ def randomType(text):
             time.sleep(0.2)
 
     print()  # Print a newline after finishing
-  
+
+def comma(words):
+    if len(words) == 0:
+        return ""
+    elif len(words) == 1:
+        return words[0]
+    else:
+        last_word = words[-1]
+        words_except_last = ", ".join(words[:-1])
+        return f"{words_except_last}, and {last_word}"
