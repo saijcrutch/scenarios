@@ -2,6 +2,7 @@ import time
 import random
 
 def mystery():
+    import main
     from auxiliary_functions import computerSpeakAni
 
     box_num = random.choice(range(1, 11))
@@ -309,4 +310,4 @@ def mystery():
             print(f"It landed on {coin} so I get to look in the box.")
             prizes2(user)
 
-
+mystery()

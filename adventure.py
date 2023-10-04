@@ -2,6 +2,7 @@ import random
 import choices
 
 def adventure():
+    import main
     from auxiliary_functions import comma
 
     time = 0
@@ -102,5 +103,3 @@ def money_total(total, goal):
         print(f"You actually made ${goal}. Go take that vacation. You earned it!")
     else:
         print(f"You made ${total}! That's ${total - goal} over your goal. Now you can really treat yourself!!!")
-    
-adventure()

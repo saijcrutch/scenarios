@@ -1,8 +1,9 @@
 import time
 import random
 
-def typeAttack():
+def typeAttack(lives):
     from words import words
+    import main
     from auxiliary_functions import backwardsComputerSpeak
     from auxiliary_functions import carnivalTalk
     from auxiliary_functions import score
@@ -127,4 +128,3 @@ def typeAttack():
                 print("Let me know when you want to play again.")
 
     
-typeAttack()
