@@ -14,12 +14,10 @@ goal = 10
 def scenarios_zh():
     games = [carnival, intelligence_game, adventure]
 
-    computerSpeak("用戶好. I am your computer and I want to play a little game. \
-I'll present different scenarios and your goal is to attempt to beat them and get as many points as you can. \
-You think you're ready? Let's get started.", 0.05)
+    computerSpeak("用戶好. 我是你的電腦跟你想玩一個遊戲。我給你3個不同的遊戲，你的目標應該是贏了。可以的嗎？開始不！", 0.05)
 
     while len(games) > 0:
-        player = input("Choose your scenario:\nThe Carnival (1)\nThe Intelligence Game (2)\nThe Adventure (3)\nRandom (4) ")
+        player = input("選擇你的遊戲:\nThe Carnival (1)\nThe Intelligence Game (2)\nThe Adventure (3)\nRandom (4) ")
 
         if player == '1':
             randomType("Carnival")
