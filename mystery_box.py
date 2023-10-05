@@ -21,7 +21,7 @@ def mystery():
         |______|
         """,
         2: """
-            /
+             /
         ____/
         |      |
         |      |
@@ -87,6 +87,7 @@ def mystery():
             print(boxVisualLives[4])
             possible_prizes.remove(p1)
             print("You won... $1,000!")
+            main.points += 3
             p2 = prize
             if p2 == 3:
                 print("\x1B[3mThe carnival worker chooses another box at random.\x1B[0m")
@@ -110,6 +111,7 @@ def mystery():
             print(boxVisualLives[5])
             possible_prizes.remove(p1)
             print("You won... a week's worth of food!")
+            main.points += 2
             p2 = prize
             if p2 == 3:
                 print("\x1B[3mThe carnival worker chooses another box at random.\x1B[0m")
@@ -133,6 +135,7 @@ def mystery():
             print(boxVisualLives[6])
             possible_prizes.remove(p1)
             print("You won... toys!")
+            main.points += 1
             p2 = prize
             if p2 == 3:
                 print("\x1B[3mThe carnival worker chooses another box at random.\x1B[0m")
@@ -310,4 +313,3 @@ def mystery():
             print(f"It landed on {coin} so I get to look in the box.")
             prizes2(user)
 
-mystery()

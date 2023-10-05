@@ -3,6 +3,7 @@ import random
 
 def typeAttack():
     from words import words
+    import main
     from auxiliary_functions import backwardsComputerSpeak
     from auxiliary_functions import carnivalTalk
     from auxiliary_functions import score
@@ -12,9 +13,9 @@ def typeAttack():
     goal = 10
     
     while p_points < goal and c_points < goal:
-        numbers = [i for i in random.choices(range(1, 11), k=3)]
+        numbers = [i for i in random.choices(range(1, 11), k=2)]
         str_numbers = [str(i) for i in numbers]
-        wordList = [i for i in random.choices(words, k=3)]
+        wordList = [i for i in random.choices(words, k=2)]
         options = sorted(wordList+str_numbers, key=lambda x: random.random())
         joined = ' '.join(options)
         joined2 = ''.join(options)
@@ -98,15 +99,16 @@ def typeAttack():
                     print(f"Your score: {p_points}")
                     c_points += 2
         
-    if p_points == 10:
+    if p_points == goal:
         print(f"Your score: {p_points}")
         print(f"My score: {c_points}")
         print("You beat me!")
-    elif p_points > 10:
+        main.points += 2
+    elif p_points > goal:
         print(f"Your score: {p_points}")
         print(f"My score: {c_points}")
         print("Woah! You're really good!")
-    elif c_points == 10:
+    elif c_points == goal:
         print(f"My score: {c_points}")
         print(f"Your score: {p_points}")
         question = input("Sorry, you lose! Play again? (Y/N) ").lower()
@@ -115,7 +117,7 @@ def typeAttack():
                 typeAttack()
             elif question == 'n':
                 print("Let me know when you want to play again.")
-    elif c_points > 10:
+    elif c_points > goal:
         print(f"My score: {c_points}")
         print(f"Your score: {p_points}")
         print("I'm the master at this game!")
@@ -127,4 +129,3 @@ def typeAttack():
                 print("Let me know when you want to play again.")
 
     
-typeAttack()

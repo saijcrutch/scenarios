@@ -146,7 +146,7 @@ def carnivalTalk(talk):
 
     for i in lang:
         print(i, end=' ', flush=True)
-        time.sleep(0.8)
+        time.sleep(0.1)
     
     time.sleep(1)
 
@@ -187,3 +187,4 @@ def comma(words):
         last_word = words[-1]
         words_except_last = ", ".join(words[:-1])
         return f"{words_except_last}, and {last_word}"
+    

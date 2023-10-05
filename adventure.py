@@ -95,11 +95,15 @@ def list_append(x):
     print(', '.join(list))
 
 def money_total(total, goal):
+    import main
+
     if goal == 0:
         print(f"Somehow you only managed to make ${total} this week. Guess you really didn't want to go on vacation.") 
     elif goal == 1 and goal <= 99:
         print(f"You made ${total} this week. That's enough for a candy bar but not a vacation.") 
     elif goal == 100:
         print(f"You actually made ${goal}. Go take that vacation. You earned it!")
+        main.points += 1
     else:
         print(f"You made ${total}! That's ${total - goal} over your goal. Now you can really treat yourself!!!")
+        main.points += 2

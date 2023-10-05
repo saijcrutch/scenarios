@@ -2,6 +2,7 @@ import time
 import random
 
 def mystery():
+    import main_zh
     from auxiliary_functions import computerSpeakAni
 
     box_num = random.choice(range(1, 11))
@@ -20,7 +21,7 @@ def mystery():
         |______|
         """,
         2: """
-            /
+             /
         ____/
         |      |
         |      |
@@ -86,6 +87,7 @@ def mystery():
             print(boxVisualLives[4])
             possible_prizes.remove(p1)
             print("You won... $1,000!")
+            main_zh.points += 3
             p2 = prize
             if p2 == 3:
                 print("\x1B[3mThe carnival worker chooses another box at random.\x1B[0m")
@@ -109,6 +111,7 @@ def mystery():
             print(boxVisualLives[5])
             possible_prizes.remove(p1)
             print("You won... a week's worth of food!")
+            main_zh.points += 2
             p2 = prize
             if p2 == 3:
                 print("\x1B[3mThe carnival worker chooses another box at random.\x1B[0m")
@@ -132,6 +135,7 @@ def mystery():
             print(boxVisualLives[6])
             possible_prizes.remove(p1)
             print("You won... toys!")
+            main_zh.points += 1
             p2 = prize
             if p2 == 3:
                 print("\x1B[3mThe carnival worker chooses another box at random.\x1B[0m")
@@ -308,5 +312,4 @@ def mystery():
         else:
             print(f"It landed on {coin} so I get to look in the box.")
             prizes2(user)
-
 
