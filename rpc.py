@@ -3,12 +3,12 @@ import time
 
 def rpc_game_normal ():
     from auxiliary_functions import computerSpeak
+    import main
 
     rpc = ['r', 'p', 's']
     computer_wins = 0
     wins = 0
     
-
     while (wins-computer_wins < 2) and (computer_wins-wins < 2) and (computer_wins < 3) and (wins < 3):
         print(f"Me: {computer_wins}  | You: {wins} ")
         user = input('Your move human: ').lower()
@@ -58,15 +58,18 @@ def com_pattern(user, computer):
     
 def score_n(user, computer):
     from auxiliary_functions import computerSpeak
+    import main
 
     if user - computer == 2:
-        print(computerSpeak("You must be sooo proud of yourself, right now."))
+        computerSpeak("You must be sooo proud of yourself, right now.")
+        main.points += 1
     elif computer - user == 2:
-        print(computerSpeak("What else were you expecting?"))
+        computerSpeak("What else were you expecting?")
     elif computer == 3:
-        print(computerSpeak("Loser!"))
+        computerSpeak("Loser!")
     elif user == 3:
-        print(computerSpeak("Hmm... I guess you won this time. Surprising."))
+        computerSpeak("Hmm... I guess you won this time. Surprising.")
+        main.points += 2
 
 
 
