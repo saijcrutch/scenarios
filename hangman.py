@@ -29,16 +29,20 @@ def hangman_n():
             user = input("Oh so you think you know it? I'd like to see you try! ").upper()
             if user == word:
                 computerSpeak(f"I'm speechless! I can't believe you guessed {word}. I guess you are kind of smart.")
+                main.points += 2
                 break
             else:
                 computerSpeak(f"I knew you couldnt guess {word}! Guess is was too much for your memory.")
+                lives -= lives
                 break
-        else:
-            print(computerSpeak("I know the only way you can win is to cheat but I won't let you get away with that."))
+        elif user not in word and user not in used_letters:
+            print(computerSpeak("Wrong. Try again."))
+            lives -= 1
 
 
-        if len(word_letters) == 0:
+        if len(word_letters) == 0 and lives > 0:
             computerSpeak(f"You guessed {word}, surprisingly.")
+            main.points += 1
 
 
 def valid_words(x):
