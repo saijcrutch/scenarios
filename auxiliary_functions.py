@@ -1,6 +1,5 @@
 import time
 import random
-import sys
 
 def computerSpeak(computer, timer):
     for i in computer:
