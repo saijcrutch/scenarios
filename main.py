@@ -76,7 +76,6 @@ You think you're ready? Let's get started.", 0.03)
                     adventure()
                     games.remove(adventure)
                     player = player.replace("The Adventure (3)", "")
-        elif player not in 
 
         if len(games) <= 1:
             player = player.replace("Random (4)", "")
@@ -102,4 +101,5 @@ You think you're ready? Let's get started.", 0.03)
         computerSpeak("I can't believe this! You, a human, shouldn't have been able to score that high!")
 
 if language == '1':
+    print("")
     scenarios()

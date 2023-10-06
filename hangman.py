@@ -4,16 +4,18 @@ def hangman_n():
     from words import words
     from auxiliary_functions import computerSpeak
     import string
+    import main
 
     word = valid_words(words)
     word_letters = set(word)
     used_letters = set()
     alphabet = set(string.ascii_uppercase)
+    lives = 5
 
-    while len(word_letters) > 0:
+    while len(word_letters) > 0 and lives > 0:
         wordlist = [letter if letter in used_letters else '*' for letter in word]
-        print(f"This is your attempt so far: {' '.join(wordlist)}")
-        print(f"This is what you've guessed: {' '.join(used_letters)}")
+        print(f"This is your attempt so far: {' '.join(wordlist)} | Lives: {lives}")
+        print(f"These are the letters you've used: {' '.join(used_letters)}")
         user = input("What is your attempt? (Press 1 to guess entire word.) ").upper()
         
 

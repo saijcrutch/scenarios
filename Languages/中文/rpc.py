@@ -57,6 +57,8 @@ def com_pattern(user, computer):
         return True
     
 def score_n(user, computer):
+    from auxiliary_functions import computerSpeak
+
     if user - computer == 2:
         print(computerSpeak("You must be sooo proud of yourself, right now."))
     elif computer - user == 2:
