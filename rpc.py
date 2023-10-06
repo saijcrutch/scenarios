@@ -71,6 +71,3 @@ def score_n(user, computer):
         computerSpeak("Hmm... I guess you won this time. Surprising.")
         main.points += 2
 
-
-
-rpc_game_normal()

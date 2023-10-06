@@ -3,15 +3,18 @@ import time
 
 def number_n():
     from auxiliary_functions import computerSpeak
-
+    import main
+    
     guess = 0
     list = random_list_n()
     random_num = random.choice(list)
-    
+    lives = 5
+
     computerSpeak("Let's see if you can get this. Can you even count from 1 to 100?", 0.05)
 
-    while guess != random_num:
+    while guess != random_num and lives > 0:
         num = input("What's your guess? ")
+        print(f"These are your lives: {lives}")
         guess = validate(num)
         
         try:
@@ -28,9 +31,16 @@ expected from a human. Guess again.", 0.05)
                 computerSpeak(f"Do you really think {guess} is between 1 and 100? -_- Try again.", 0.05)
             elif guess in list:
                 print(guess)
-            
 
-    computerSpeak("Took you a while but you finally got it.",0.05)
+        if guess > random_num:
+            computerSpeak("Nope. Try again. <-")
+            lives -= 1
+        elif guess < random_num:
+            computerSpeak("Nope. Try again. ->")   
+            lives -= 1   
+        elif guess == random_num:     
+            computerSpeak("Took you a while but you finally got it.",0.05)
+            main.points += 1
 
 def validate(userInput):
     input = userInput
