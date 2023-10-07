@@ -36,7 +36,7 @@ def hangman_n():
                 lives -= lives
                 break
         elif user not in word_letters and user not in used_letters:
-            computerSpeak("Wrong. Try again.", 0.05)
+            computerSpeak("That's not even a letter!", 0.05)
             lives -= 1
 
         if len(word_letters) == 0 and lives > 0:

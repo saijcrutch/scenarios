@@ -33,10 +33,10 @@ expected from a human. Guess again.", 0.05)
                 print(guess)
 
         if guess > random_num:
-            computerSpeak("Nope. Try again. <-")
+            computerSpeak("Nope. Try again. <-", 0.05)
             lives -= 1
         elif guess < random_num:
-            computerSpeak("Nope. Try again. ->")   
+            computerSpeak("Nope. Try again. ->", 0.05)   
             lives -= 1   
         elif guess == random_num:     
             computerSpeak("Took you a while but you finally got it.",0.05)

@@ -183,9 +183,9 @@ def comma(words):
     elif len(words) == 1:
         return words[0]
     elif len(words) == 2:
-        return f"{words[0]} and {words[1]}"
+        return f"{words[0]} 和 {words[1]}"
     else:
         last_word = words[-1]
         words_except_last = ", ".join(words[:-1])
-        return f"{words_except_last}, and {last_word}"
+        return f"{words_except_last}, 和 {last_word}"
     
