@@ -21,5 +21,3 @@ of.", 0.05)
     rpc_game_normal()
     print("---")
     computerSpeak("No matter what, I will always be better than you.", 0.05)
-
-intelligence_game()

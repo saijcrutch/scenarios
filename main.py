@@ -38,44 +38,63 @@ You think you're ready? Let's get started.", 0.03)
             continue
 
         if player == '1' and carnival in games:
+            print("")
+            time.sleep(0.5)
             randomType("Carnival")
             time.sleep(0.5)
+            print("---")
             carnival()
             games.remove(carnival)
             player = player.replace("The Carnival (1)", "")
         elif player == '2'and intelligence_game in games:
+            print("")
+            time.sleep(0.5)
             randomType("Intelligence Game")
             time.sleep(0.5)
+            print("---")
             intelligence_game()
             games.remove(intelligence_game)
             player = player.replace("The Intelligence Game (2)", "")
         elif player == '3' and adventure in games:
+            print("")
+            time.sleep(0.5)
             randomType("The Adventure")
             time.sleep(0.5)
+            print("---")
             adventure()
             games.remove(adventure)
             player = player.replace("The Adventure (3)", "")
         elif player == '4' and len(games) > 1:
             if len(games) > 1:
                 selection = random.choice(games)
-                if selection == games[0]:
+                if selection == carnival:
+                    print("")
+                    time.sleep(0.5)
                     randomType("Carnival")
                     time.sleep(0.5)
+                    print("---")
                     carnival()
-                    games.remove(carnival)
-                    player = player.replace("The Carnival (1)", "")
-                elif selection == games[1]:
+                    player = player.replace("The Carn1ival (1)", "")
+                elif selection == intelligence_game:
+                    print("")
+                    time.sleep(0.5)
                     randomType("Intelligence Game")
                     time.sleep(0.5)
+                    print("---")
                     intelligence_game()
-                    games.remove(intelligence_game)
                     player = player.replace("The Intelligence Game (2)", "")
-                elif selection == games[2]:
+                elif selection == adventure:
+                    print("")
+                    time.sleep(0.5)
                     randomType("The Adventure")
                     time.sleep(0.5)
+                    print("---")
                     adventure()
-                    games.remove(adventure)
                     player = player.replace("The Adventure (3)", "")
+                elif len(games) == 1:
+                    print("There's only one game left to play.")
+                    continue
+                games.remove(selection)
 
         if len(games) <= 1:
             player = player.replace("Random (4)", "")

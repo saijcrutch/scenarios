@@ -52,5 +52,3 @@ def valid_words(x):
         word = random.choice(words)
     
     return word.upper()
-
-hangman_n()
