@@ -1,6 +1,5 @@
 import time
 import random
-import sys
 
 def computerSpeak(computer, timer):
     for i in computer:
@@ -183,6 +182,8 @@ def comma(words):
         return ""
     elif len(words) == 1:
         return words[0]
+    elif len(words) == 2:
+        return f"{words[0]} and {words[1]}"
     else:
         last_word = words[-1]
         words_except_last = ", ".join(words[:-1])

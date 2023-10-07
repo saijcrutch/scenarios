@@ -103,11 +103,12 @@ def typeAttack():
         print(f"Your score: {p_points}")
         print(f"My score: {c_points}")
         print("You beat me!")
-        main.points += 2
+        main.points += 1
     elif p_points > goal:
         print(f"Your score: {p_points}")
         print(f"My score: {c_points}")
         print("Woah! You're really good!")
+        main.points += 2
     elif c_points == goal:
         print(f"My score: {c_points}")
         print(f"Your score: {p_points}")

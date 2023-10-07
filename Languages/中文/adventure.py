@@ -11,14 +11,14 @@ def adventure():
     name = input("What do you want your character's name to be? ")
     intro = print(f"This story is about you, {name}, and your quest to get $100 to go on vacation. You have 1 week.")
     new_day = 7
-    job = random.choice(choices.in_person_jobs)
+    job = random.choice(choices.in_person_jobs) 
     search = choices.search_choice
     money = 0
 
     print(f"You're not gonna go on vacation by laying in bed. You have ${money} in your bank account so get up and make some money!")
     while new_day > 0:
-        user = input(f"Do you want to {search[0]} (1) or search {search[1]} (2)? ")
-        if user == "1":
+        user = input(f"Do you want to {search[0]} (A) or search {search[1]} (B)? ").lower()
+        if user == "a":
             new_day -= 3
             del choices.week[0:3]
             while True:
@@ -42,7 +42,7 @@ You work for 3 days and make ${int(len(choices.week)) * choices.lowes_pay}.")
                     print("Yeah, I know these aren't the best jobs but beggars can't be choosers. Choose again.")
                     continue
                 break
-        if user == '2':
+        if user == 'b':
             del choices.week[0:2]
             randoms = random.randrange(len(choices.neighbors))
             if randoms == 0:

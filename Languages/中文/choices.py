@@ -1,8 +1,8 @@
 import random
 
 binary_choice = ['yes', 'no']
-search_choice = ['online', 'in-person']
-in_person_jobs = [['cut grass', 10], ['move furniture', 20], ['walk dogs', 15], ['wash cars', 25]]
+search_choice = ['online', 'in-person'] 
+in_person_jobs = [['cut grass', 10], ['move furniture', 20], ['walk their dog(s)', 15], ['wash cars', 25]]
 locations = [['Burger King', 10], ['Walmart', 12], ['Lowes', 15]]
 days = [['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], ['Saturday', 'Sunday']]
 time = [['Morning', 4], ['Afternoon', 4], ['Evening', 4], ['Night', 12]]
